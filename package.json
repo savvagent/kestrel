@@ -35,5 +35,23 @@
     "rollup-plugin-live-server": "^2.0.0",
     "rollup-plugin-terser": "^7.0.2",
     "tiny-uri": "^8.1.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/savvagent/kestrel.git"
+  },
+  "keywords": [
+    "lightweight",
+    "isomorphic",
+    "javascript",
+    "HTTP",
+    "client"
+  ],
+  "bugs": {
+    "url": "https://github.com/savvagent/kestrel/issues"
+  },
+  "homepage": "https://github.com/savvagent/kestrel#readme"
 }
