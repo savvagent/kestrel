@@ -61,7 +61,7 @@ export default [
   },
   {
     input: resolve(root, 'test', 'browser.js'),
-    plugins: [...plugins, !production && liveServer(devServerConfig)],
+    plugins: [nodeResolve(), json(), !production && liveServer(devServerConfig)],
     output: {
       file: resolve(root, 'test', 'browser-bundle.js'),
       format: 'esm'

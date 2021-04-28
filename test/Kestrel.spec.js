@@ -1,16 +1,14 @@
-import { expect } from 'chai';
 import Kestrel from '../src/Kestrel';
 import jsonRequest from '../interceptors/json-request';
 import jsonResponse from '../interceptors/json-response';
 import rejectErrors from '../interceptors/reject-errors';
 import mockEmployees from './mockEmployees';
-import fetchMock from 'fetch-mock';
 
 function employees() {
   return mockEmployees;
 }
 
-describe.only('Kestrel class', () => {
+describe('Kestrel class', () => {
   let client;
   const url = 'http://localhost:8080/employees';
 
