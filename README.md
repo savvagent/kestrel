@@ -145,3 +145,47 @@ export const audioInterceptor = {
 }
 ```
 
+Interceptor methods (request, requestError, response, responseError) can incorporate promises.
+
+```JavaScript
+const url = 'http://dummy.restapiexample.com/api/v1/employees';
+const p = Promise.resolve({session: '124-64-74-311157-537524-7453-8889-19-11886119-5-2512148-7874-6612768-86-9052812935'});
+
+const interceptor = {
+  async request(url = "", config = {}) {
+    const prom = await p;
+    const u = `${url}?session=${prom.session}`
+    return [u, config];
+  },
+  id: 'PROMISE_REQUEST'
+}
+
+const client = new Kestrel([interceptor]);
+const response = await client.request(url);
+console.log(response.url.includes(session)) // true
+```
+
+```JavaScript
+const url = 'http://dummy.restapiexample.com/api/v1/employees';
+const p = Promise.resolve({thingy: 'foo'});
+
+const interceptor = {
+  async response(response) {
+    if (response.status === 204 || response.status === 201) return {};
+    const text = await response.text();
+    const json = JSON.parse(text);
+    const { data } = json;
+    const resolvedPromise = await p;
+    const arr = data.map(datum => ({
+      ...datum,
+      ...resolvedPromise
+    }))
+    return arr;
+  },
+  id: 'PROMISE_RESPONSE'
+}
+client = new Kestrel([interceptor]);
+const response = await client.request(url);
+response.forEach(item => expect(item.thingy).to.equal('foo'))
+```
+

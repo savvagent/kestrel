@@ -1,6 +1,6 @@
 {
   "name": "@robhicks/kestrel",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Lightweight isomorphic JavaScript HTTP client",
   "browser": "dist/kestrel.min.js",
   "main": "index.js",
