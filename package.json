@@ -1,5 +1,5 @@
 {
-  "name": "@robhicks/kestrel",
+  "name": "@savvagent/kestrel",
   "version": "1.0.3",
   "description": "Lightweight isomorphic JavaScript HTTP client",
   "browser": "dist/kestrel.min.js",
