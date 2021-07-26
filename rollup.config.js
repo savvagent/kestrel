@@ -44,6 +44,86 @@ export default [
       format: 'esm'
     }
   },
+  {
+    input: resolve(root, 'interceptors', 'json-request.js'),
+    plugins: [],
+    output: {
+      file: resolve(root, 'dist', 'json-request.js'),
+      format: 'esm'
+    }
+  },
+  {
+    input: resolve(root, 'interceptors', 'json-request.js'),
+    plugins: [terser()],
+    output: {
+      file: resolve(root, 'dist', 'json-request.min.js'),
+      format: 'esm'
+    }
+  },
+  {
+    input: resolve(root, 'interceptors', 'json-response.js'),
+    plugins: [],
+    output: {
+      file: resolve(root, 'dist', 'json-response.js'),
+      format: 'esm'
+    }
+  },
+  {
+    input: resolve(root, 'interceptors', 'json-response.js'),
+    plugins: [terser()],
+    output: {
+      file: resolve(root, 'dist', 'json-response.min.js'),
+      format: 'esm'
+    }
+  },
+  {
+    input: resolve(root, 'interceptors', 'reject-errors.js'),
+    plugins: [],
+    output: {
+      file: resolve(root, 'dist', 'reject-errors.js'),
+      format: 'esm'
+    }
+  },
+  {
+    input: resolve(root, 'interceptors', 'reject-errors.js'),
+    plugins: [terser()],
+    output: {
+      file: resolve(root, 'dist', 'reject-errors.min.js'),
+      format: 'esm'
+    }
+  },
+  {
+    input: resolve(root, 'interceptors', 'bust-cache.js'),
+    plugins: [],
+    output: {
+      file: resolve(root, 'dist', 'bust-cache.js'),
+      format: 'esm'
+    }
+  },
+  {
+    input: resolve(root, 'interceptors', 'bust-cache.js'),
+    plugins: [terser()],
+    output: {
+      file: resolve(root, 'dist', 'bust-cache.min.js'),
+      format: 'esm'
+    }
+  },
+  {
+    input: resolve(root, 'interceptors', 'index.js'),
+    plugins: [],
+    output: {
+      file: resolve(root, 'dist', 'all-interceptors.js'),
+      format: 'esm'
+    }
+  },
+  {
+    input: resolve(root, 'interceptors', 'index.js'),
+    plugins: [terser()],
+    output: {
+      file: resolve(root, 'dist', 'all-interceptors.min.js'),
+      format: 'esm'
+    }
+  },
 {
     input: server,
     output: {
