@@ -1,4 +1,3 @@
-import { babel } from '@rollup/plugin-babel';
 import { liveServer } from 'rollup-plugin-live-server';
 import { resolve } from 'path';
 import { terser } from 'rollup-plugin-terser';
