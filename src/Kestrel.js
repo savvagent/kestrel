@@ -22,8 +22,8 @@ class Kestrel {
 
     // Register fetch call
     promise = promise.then((_args) => {
-      const [url, config] = _args;
-      return this.fetch(url, config);
+      const [url, options] = _args;
+      return this.fetch(url, options);
     });
 
     // Register response interceptors
@@ -47,8 +47,8 @@ class Kestrel {
   }
 
   request(...args) {
-    const [url, config] = args;
-    const conf = config || {};
+    const [url, options] = args;
+    const conf = options || {};
     const s = JSON.stringify(...args);
     const loading = this.requestMap.get(s);
     const cached = this.requestCache.has(s);
@@ -67,43 +67,43 @@ class Kestrel {
   }
 
   delete(...args) {
-    const [url, config] = args;
-    const conf = config || {};
+    const [url, options] = args;
+    const conf = options || {};
     conf.method = 'DELETE';
     return this.request(url, conf);
   }
 
   get(...args) {
-    const [url, config] = args;
-    const conf = config || {};
+    const [url, options] = args;
+    const conf = options || {};
     conf.method = 'GET';
     return this.request(url, conf);
   }
 
   head(...args) {
-    const [url, config] = args;
-    const conf = config || {};
+    const [url, options] = args;
+    const conf = options || {};
     conf.method = 'HEAD';
     return this.request(url, conf);
   }
 
   patch(...args) {
-    const [url, config] = args;
-    const conf = config || {};
+    const [url, options] = args;
+    const conf = options || {};
     conf.method = 'PATCH';
     return this.request(url, conf);
   }
 
   post(...args) {
-    const [url, config] = args;
-    const conf = config || {};
+    const [url, options] = args;
+    const conf = options || {};
     conf.method = 'POST';
     return this.request(url, conf);
   }
 
   put(...args) {
-    const [url, config] = args;
-    const conf = config || {};
+    const [url, options] = args;
+    const conf = options || {};
     conf.method = 'PUT';
     return this.request(url, conf);
   }

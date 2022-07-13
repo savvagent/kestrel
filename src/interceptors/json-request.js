@@ -1,12 +1,12 @@
 import { isJson } from '../utils'
 
 const jsonRequest = {
-  request(url, config = {}) {
-    config.headers = { ...config.headers || {}, Accept: 'application/json', 'Content-Type': 'application/json' }
+  request(url, options = {}) {
+    options.headers = { ...options.headers || {}, Accept: 'application/json', 'Content-Type': 'application/json' }
     
-    if (config.body && !isJson(config.body)) config.body = JSON.stringify(config.body);
+    if (options.body && !isJson(options.body)) options.body = JSON.stringify(options.body);
 
-    return [url, config];
+    return [url, options];
   },
   id: 'KESTREL_JSON_REQUEST'
 };

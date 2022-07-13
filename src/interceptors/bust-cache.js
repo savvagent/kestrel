@@ -1,10 +1,10 @@
 import TinyUri from 'tiny-uri';
 
 const bustCache = {
-  request(url, config = {}) {
+  request(url, options = {}) {
     url = new TinyUri(url).query.add({ rn: new Date().getTime().toString() });
 
-    return [url, config];
+    return [url, options];
   },
   id: 'KESTREL_BUST_CACHE'
 };
