@@ -1,16 +1,13 @@
 import { build } from 'esbuild'
 import { resolve } from 'path'
 
-const entryPoints = [resolve('src', 'index.js')]
-
 const browserConfig = {
   bundle: true,
-  entryPoints,
+  entryPoints: [resolve('src', 'index.js')],
   format: 'esm',
   minify: true,
   sourcemap: true,
   outfile: resolve('dist', 'kestrel.js'),
-  watch: true
 }
 
 const cjsConfig = {
@@ -21,7 +18,6 @@ const cjsConfig = {
     sourcemap: false,
     outfile: 'index.js',
     target: ['node14.0'],
-    watch: true
   }
 }
 
@@ -40,7 +36,6 @@ const testConfig = {
   minify: false,
   outfile: resolve('test', 'browser-bundle.js'),
   sourcemap: false,
-  watch: true
 }
 
 Promise.all([

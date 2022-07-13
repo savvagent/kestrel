@@ -6,7 +6,7 @@
   "main": "index.js",
   "module": "index.mjs",
   "scripts": {
-    "build": "node esbuild.prod.js",
+    "build": "node esbuild.prod.config.js",
     "build:w": "nodemon -w esbuild.dev.config.js -w src -w interceptors esbuild.dev.config.js",
     "dev:server": "web-dev-server --node-resolve --port 8080 --open test/ --watch",
     "dev": "run-p build:w dev:server",

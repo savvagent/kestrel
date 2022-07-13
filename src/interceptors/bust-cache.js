@@ -2,11 +2,7 @@ import TinyUri from 'tiny-uri';
 
 const bustCache = {
   request(url, config = {}) {
-    if (config && config.bustCache) {
-      const u = new TinyUri(url);
-      u.query.add({ rn: new Date().getTime().toString() });
-      url = u.toString();
-    }
+    url = new TinyUri(url).query.add({ rn: new Date().getTime().toString() });
 
     return [url, config];
   },

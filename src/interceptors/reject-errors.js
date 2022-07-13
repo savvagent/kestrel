@@ -1,4 +1,5 @@
-import isJson from './isJson';
+import { isJson } from '../utils';
+
 
 const rejectErrors = {
   response(response) {

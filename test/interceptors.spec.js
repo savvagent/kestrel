@@ -1,8 +1,8 @@
-import bustCache from '../interceptors/bust-cache';
+import bustCache from '../src/interceptors/bust-cache';
 import Kestrel from '../src/Kestrel';
-import jsonRequest from '../interceptors/json-request';
-import jsonResponse from '../interceptors/json-response';
-import rejectErrors from '../interceptors/reject-errors';
+import jsonRequest from '../src/interceptors/json-request';
+import jsonResponse from '../src/interceptors/json-response';
+import rejectErrors from '../src/interceptors/reject-errors';
 import mockEmployees from './mockEmployees';
 
 describe('standard interceptors', () => {
