@@ -25,7 +25,6 @@ jspm_packages
 test/test-bundle.js
 test/browser-bundle.js
 dist
-index.js
-index.mjs
 test/browser-bundle.js
 test/server-bundle.js
+yarn.lock
