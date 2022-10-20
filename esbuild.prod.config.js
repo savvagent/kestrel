@@ -1,13 +1,14 @@
 import { build } from 'esbuild'
-import { resolve } from 'path'
+
+const entryPoints = ['src/Kestrel.js', 'src/interceptors/bust-cache.js', 'src/interceptors/json-request.js', 'src/interceptors/json-response.js', 'src/interceptors/reject-errors.js']
 
 const browserConfig = {
   bundle: true,
-  entryPoints: [resolve('src', 'index.js')],
+  entryPoints,
   format: 'esm',
   minify: true,
   sourcemap: true,
-  outfile: resolve('dist', 'kestrel.js'),
+  outdir: 'dist/esm'
 }
 
 const cjsConfig = {
@@ -16,32 +17,23 @@ const cjsConfig = {
     format: 'cjs',
     minify: false,
     sourcemap: false,
-    outfile: 'index.js',
-    target: ['node14.0'],
-  }
-}
-
-const mjsConfig = {
-  ...cjsConfig,
-  ...{
-    format: 'esm',
-    outfile: 'index.mjs'
+    outdir: 'dist/cjs',
+    target: ['node14.0']
   }
 }
 
 const testConfig = {
   bundle: true,
-  entryPoints: [resolve('test', 'browser.js')],
+  entryPoints: ['test/browser.js'],
   format: 'esm',
   minify: false,
-  outfile: resolve('test', 'browser-bundle.js'),
-  sourcemap: false,
+  outfile: 'test/browser-bundle.js',
+  sourcemap: false
 }
 
 Promise.all([
   build(browserConfig),
   build(cjsConfig),
-  build(mjsConfig),
   build(testConfig)
 ])
   .catch((err) => console.log('err', err))

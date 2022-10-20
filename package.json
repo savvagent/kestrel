@@ -2,9 +2,28 @@
   "name": "@savvagent/kestrel",
   "version": "1.2.0",
   "description": "Lightweight isomorphic JavaScript HTTP client",
-  "browser": "src/index.js",
-  "main": "index.js",
-  "module": "index.mjs",
+  "exports": {
+    "./Kestrel": {
+      "import": "./dist/esm/Kestrel.js",
+      "require": "./dist/cjs/Kestrel.js"
+    },
+    "./interceptors/bust-cache": {
+      "import": "./dist/esm/interceptors/bust-cache.js",
+      "require": "./dist/cjs/interceptors/bust-cache.js"
+    },
+    "./interceptors/json-request": {
+      "import": "./dist/esm/interceptors/json-request.js",
+      "require": "./dist/cjs/interceptors/json-request.js"
+    },
+    "./interceptors/json-response": {
+      "import": "./dist/esm/interceptors/json-response.js",
+      "require": "./dist/cjs/interceptors/json-response.js"
+    },
+    "./interceptors/reject-errors": {
+      "import": "./dist/esm/interceptors/reject-errors.js",
+      "require": "./dist/cjs/interceptors/json-request.js"
+    }
+  },
   "scripts": {
     "build": "node esbuild.prod.config.js",
     "build:w": "nodemon -w esbuild.dev.config.js -w src -w interceptors esbuild.dev.config.js",
